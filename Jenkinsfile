@@ -26,7 +26,7 @@ pipeline {
             }
 
             post {
-                always{
+                always {
                     junit '**/target/surefire-reports/Test-*.xml'
                 }
             }
@@ -41,7 +41,7 @@ pipeline {
 
 
             post {
-                success{
+                success {
                     archiveArtifacts artifacts: '**/target/**.war', followSymlinks: false
                 }
             }
