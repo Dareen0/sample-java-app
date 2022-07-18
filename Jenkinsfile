@@ -1,33 +1,43 @@
 pipeline {
     agent any
+    stages {
+        stage('Validate') {
+            steps {
 
-    environment{
-        DEMO= "1.1"
+                sh "mvn validate"
+                sh "mvn clean"
+            }
+        }
     }
     stages {
-        stage('Fetch Code') {
+        stage('Bulid') {
             steps {
-                echo 'Fetch Code'
-                sh 'echo "Hi I am running first shell"'
-            }
-
-        }
-        
-         stage('Build') {
-            steps {
-                echo 'Build'
+                
+                sh "mvn compile"
             }
         }
-        
-         stage('Test') {
+    }
+    stages {
+        stage('Test') {
             steps {
-                echo 'Test'
+                sh "mvn test"
+            }
+            post{
+            always{
+                junit '**/target/surefire-reports/Test-*.xml'
+             }
             }
         }
-        
-         stage('Deploy') {
+    }
+    stages {
+        stage('Package') {
             steps {
-                echo 'Deploy'
+                sh "mvn package"
+            }
+            post{
+                success{
+                    archiveArtifacts artifacts: '**/target/**.war', followSymlinks: false
+                }
             }
         }
     }
