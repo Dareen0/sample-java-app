@@ -48,14 +48,14 @@ pipeline {
         }
         stage('Quality Scan') {
             steps {
-                sh '''
+                sh """
 
                 mvn clean verify sonar:sonar \
                 -Dsonar.projectKey=Dareen-OnlineCohort-Project \
                 -Dsonar.host.url=http://$SONAR_IP\
                 -Dsonar.login=$SONAR_TOKEN
 
-                '''
+                """
             }
         }
     
@@ -89,5 +89,6 @@ pipeline {
 
             }
         }
+    
     }
 }
