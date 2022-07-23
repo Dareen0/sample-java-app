@@ -1,7 +1,8 @@
 pipeline {
     agent any
+
     stages {
-        stage('Restore') {
+        stage('Validate') {
             steps {
 
                 sh 'dotnet restore'
@@ -24,7 +25,7 @@ pipeline {
             }
         }
     
-        stage('Publish') {
+        stage('Package') {
             steps {
 
                 sh 'dotnet publish'
