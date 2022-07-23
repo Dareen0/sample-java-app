@@ -9,7 +9,7 @@ pipeline {
             }
         }
   
-        stage('Bulid') {
+        stage('Build') {
             steps {
 
                 sh 'dotnet build'
