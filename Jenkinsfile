@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Validate') {
+        stage('Restore') {
             steps {
 
                 sh 'dotnet restore'
