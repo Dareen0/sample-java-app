@@ -16,6 +16,7 @@ pipeline {
         SONAR_TOKEN = "sqp_ca8ceffb110a3b17e4fb4d720872b3b9c65f3f90"
     }
 
+
     stages {
         stage('Validate') {
             steps {
