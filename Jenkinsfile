@@ -15,6 +15,7 @@ pipeline {
         SONAR_IP = "54.226.50.200"
         SONAR_TOKEN = "sqp_ca8ceffb110a3b17e4fb4d720872b3b9c65f3f90"
     }
+
     stages {
         stage('Validate') {
             steps {
@@ -79,6 +80,7 @@ pipeline {
                 sh "aws s3 cp ./target/**.war s3://$AWS_S3_BUCKET/$ARTEFACT_NAME"
             }
         }
+        
         stage('Deploy') {
             steps {
 
