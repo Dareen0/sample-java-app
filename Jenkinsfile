@@ -5,12 +5,12 @@ pipeline {
         AWS_ACCESS_KEY_ID     = credentials('aws-access-key-id')
         AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key')
 
-        AWS_S3_BUCKET = "artefact-bucket-app"
+        AWS_S3_BUCKET = "selenium-t"
         ARTEFACT_NAME = "hello-world.war"
 
-        AWS_EB_APP_NAME = ".net-webapp"
+        AWS_EB_APP_NAME = "hello-world-web"
         AWS_EB_APP_VERSION = "${BUILD_ID}"
-        AWS_EB_ENVIRONMENT = "Netwebapp-env"
+        AWS_EB_ENVIRONMENT = "Helloworldweb-env"
 
         SONAR_IP = "54.226.50.200"
         SONAR_TOKEN = "sqp_ca8ceffb110a3b17e4fb4d720872b3b9c65f3f90"
