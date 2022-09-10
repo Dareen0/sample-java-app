@@ -48,7 +48,7 @@ pipeline {
                 }
             }
         }
-        stage('Quality Scan') {
+   /*     stage('Quality Scan') {
             steps {
                 sh """
 
@@ -59,7 +59,7 @@ pipeline {
 
                 """
             }
-        }
+      */  }
     
         stage('Package') {
             steps {
